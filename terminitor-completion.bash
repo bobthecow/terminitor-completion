@@ -38,14 +38,14 @@ _terminitor()
     local prev="${COMP_WORDS[COMP_CWORD-1]}"
 
     # Subcommand list
-    local actions="delete generate help list open setup start"
+    local actions="create delete edit fetch help init list setup start"
     [[ ${COMP_CWORD} -eq 1 ]] && {
         COMPREPLY=( $(compgen -W "${actions}" -- ${cur}) )
         return
     }
 
     case "${prev}" in
-    delete|open|start)
+    delete|edit|setup|start)
         COMPREPLY=( $(compgen -W "$( terminitor list | grep '*' | awk '{ print $2 }' )" -- ${cur}) )
         return 0
         ;;
