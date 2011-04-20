@@ -46,7 +46,7 @@ _terminitor()
 
     case "${prev}" in
     delete|edit|setup|start)
-        COMPREPLY=( $(compgen -W "$( ls $HOME/.terminitor | awk '{ sub(/\.(yml|term)$/, ""); print }' )" -- ${cur}) )
+        COMPREPLY=( $(compgen -W "$( ls $HOME/.config/terminitor | awk '{ sub(/\.(yml|term)$/, ""); print }' )" -- ${cur}) )
         return 0
         ;;
     help)
